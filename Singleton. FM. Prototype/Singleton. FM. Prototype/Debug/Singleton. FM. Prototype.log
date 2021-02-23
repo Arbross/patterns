@@ -1,0 +1,4 @@
+﻿  Source.cpp
+C:\Users\victor\source\repos\Singleton. FM. Prototype\Singleton. FM. Prototype\Source.cpp(20,1): error C2280: "LogMsg::LogMsg(const LogMsg &)": предпринята попытка ссылки на удаленную функцию
+C:\Users\victor\source\repos\Singleton. FM. Prototype\Singleton. FM. Prototype\LogMsg.h(12): message : см. объявление "LogMsg::LogMsg"
+C:\Users\victor\source\repos\Singleton. FM. Prototype\Singleton. FM. Prototype\LogMsg.h(12,2): message : "LogMsg::LogMsg(const LogMsg &)": функция явно удалена.

@@ -1,0 +1,3 @@
+﻿  PATERNS SMART SINGLETONE.cpp
+C:\Users\victor\source\repos\PATERNS SMART SINGLETONE\PATERNS SMART SINGLETONE\PATERNS SMART SINGLETONE.cpp(49,52): error C2440: инициализация: невозможно преобразовать "std::shared_ptr<Budget>" в "Budget *"
+C:\Users\victor\source\repos\PATERNS SMART SINGLETONE\PATERNS SMART SINGLETONE\PATERNS SMART SINGLETONE.cpp(49,12): message : Для выполнения данного преобразования нет доступного оператора преобразования, определенного пользователем, или вызов оператора невозможен
