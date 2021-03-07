@@ -1,0 +1,26 @@
+#include <iostream>
+#include "Job.h"
+using namespace std;
+
+int count()
+{
+	int new_tmp = 1000 * 50 / 100;
+	return new_tmp;
+}
+
+/*
+б) Створити програму для обчислення вартості праці програміста. Програміст може працювати на фрілансі чи(і) бути працівником  компанії.
+Програміст може виконувати завдання на певній мові програмування(С++, C#  та ін.). Кожна година роботи оплачується залежно від мови програмування.
+Працівник компанії додатково із заробленої суми платить податки. 
+*/
+
+int main()
+{
+	ILanguage* csh = new CSharp();
+	ILanguage* java = new Java();
+
+	Programmer* placeJob = new PlaceJob(50, csh);
+	cout << placeJob->count(4) << endl;
+	placeJob->print();
+	cout << count() << endl;
+}
