@@ -41,7 +41,7 @@ public:
 	virtual int count(const size_t& monthes) override
 	{
 		int tmp = Programmer::count(monthes);
-		int new_tmp = tmp * (getInterest() / 100);
+		int new_tmp = tmp * getInterest() / 100;
 		return new_tmp;
 	}
 
@@ -49,8 +49,6 @@ public:
 	{
 		Programmer::print();
 	}
-
-	
 private:
 	int interest;
 };
@@ -69,7 +67,7 @@ public:
 	virtual int count(const size_t& monthes) override
 	{
 		int tmp = Programmer::count(monthes);
-		int new_tmp = tmp * (getInterest() / 100);
+		int new_tmp = tmp * getInterest() / 100;
 		return new_tmp;
 	}
 
