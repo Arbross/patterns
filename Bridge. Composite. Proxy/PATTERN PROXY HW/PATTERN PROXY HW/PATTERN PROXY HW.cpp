@@ -13,50 +13,83 @@ __interface IDoor
     void open();
 };
 
-class Door : IDoor
+class Door : public IDoor
 {
 public:
-    Door();
+    Door(const bool& state = false)
+        : state(state) {}
 
     void open() override
     {
-        cout << "Open" << endl;
+        cout << "Open door." << endl;
         state = true;
     }
 
     void close() override
     {
-        cout << "Close" << endl;
+        cout << "Close door." << endl;
         state = false;
     }
 
-    bool getState() const
+    bool getStatus() const
     {
         return state;
     }
 
     void showStatus() const
     {
-        cout << "State : " << boolalpha << state << endl;
+        cout << "Status : " << boolalpha << state << endl;
     }
-protected:
-    bool state = false;
+private:
+    bool state;
 };
 
 class SecureProxy
 {
 public:
+    SecureProxy(LOGIN login, PASSWORD password)
+    {
+        door = new Door();
+        users.emplace(login, password);
+    }
+
+    SecureProxy(Door* door_)
+    {
+        door_ = door;
+    }
+
+    void open(LOGIN login, PASSWORD psw)
+    {
+        if (getAuthorisation(login, psw))
+        {
+            door->open();
+        }
+    }
+
+    void close()
+    {
+        door->close();
+    }
+
+    bool getAuthorisation(LOGIN login, PASSWORD psw)
+    {
+        for (const auto& elem : users)
+        {
+            if (elem.first == login and elem.second == psw)
+            {
+                cout << "Succsessfuly autorisation!" << endl;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     ~SecureProxy()
     {
         door = nullptr;
         delete[] door;
     }
-
-    void close();
-    bool getAuthorisation(LOGIN login, PASSWORD psw);
-    void open(LOGIN login, PASSWORD psw);
-    SecureProxy(LOGIN login, PASSWORD password);
-    SecureProxy(Door* door_);
 private:
     Door* door;
     map<LOGIN, PASSWORD> users;
@@ -65,19 +98,5 @@ private:
 int main()
 {
     
-}
-
-void SecureProxy::close()
-{
-    
-}
-
-void SecureProxy::open(LOGIN login, PASSWORD psw)
-{
-    cout << "Login : " << login << "Password : " << psw << endl;
-}
-
-SecureProxy::SecureProxy(LOGIN login, PASSWORD password)
-{
-    users.emplace(login, password);
+    return 0;
 }
